@@ -1,8 +1,3 @@
 name = "lecture-notes-assistant"
 pages_build_output_dir = "src"
 compatibility_date = "2026-05-27"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "lecture_notes_assistant"
-database_id = "replace-with-your-d1-database-id"
