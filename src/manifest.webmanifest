@@ -1,0 +1,35 @@
+{
+  "name": "听课笔记桌面",
+  "short_name": "听课笔记",
+  "description": "边听课边速记，课后整理文档笔记，每日 Todo 小窗提醒。",
+  "start_url": "./#mini",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#3f6f5f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "听课速记",
+      "url": "./#quick",
+      "description": "打开速记窗口"
+    },
+    {
+      "name": "今日 Todo",
+      "url": "./#mini",
+      "description": "打开桌面 Todo 小窗"
+    },
+    {
+      "name": "文档笔记",
+      "url": "./#notes",
+      "description": "整理课程文档"
+    }
+  ]
+}
