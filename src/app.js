@@ -6,6 +6,28 @@ let installPromptEvent = null;
 let syncKey = localStorage.getItem(SYNC_KEY_STORAGE_KEY) || "";
 let syncStatus = "本地自动保存";
 
+const nowTime = () =>
+  new Intl.DateTimeFormat("zh-CN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: APP_TIME_ZONE,
+  }).format(new Date());
+
+const todayKey = () => {
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    timeZone: APP_TIME_ZONE,
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((part) => part.type === type)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
+};
+
+const uid = () =>
+  `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
 function getTheme() {
   return localStorage.getItem(THEME_KEY) || "auto";
 }
@@ -202,28 +224,6 @@ function renderTimer() {
     </div>
   `;
 }
-
-const nowTime = () =>
-  new Intl.DateTimeFormat("zh-CN", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: APP_TIME_ZONE,
-  }).format(new Date());
-
-const todayKey = () => {
-  const parts = new Intl.DateTimeFormat("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    timeZone: APP_TIME_ZONE,
-  }).formatToParts(new Date());
-  const get = (type) => parts.find((part) => part.type === type)?.value;
-  return `${get("year")}-${get("month")}-${get("day")}`;
-};
-
-const uid = () =>
-  `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 
 const defaultState = () => {
   const courseId = uid();
